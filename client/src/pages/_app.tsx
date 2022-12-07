@@ -1,14 +1,33 @@
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { configureStore } from "@reduxjs/toolkit";
+import type { AppProps } from "next/app";
+import { useMemo } from "react";
+import { Provider, useSelector } from "react-redux";
+import globalReducer from "state";
+import { themeSettings } from "theme";
 import "../styles/globals.css";
 
-import { Provider } from "react-redux";
-import type { AppProps } from "next/app";
+const store = configureStore({
+  reducer: {
+    global: globalReducer,
+  },
+});
 
-import store from "../store";
+interface RootState {
+  global: {
+    mode: string;
+  };
+}
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const mode = useSelector((state: RootState) => state.global.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </Provider>
   );
 }
