@@ -43,7 +43,7 @@ export const tokensDark = {
 };
 
 // function that reverses the color palette
-function reverseTokens(tokensDark) {
+function reverseTokens(tokensDark: unknown) {
   const reversedTokens = {};
   Object.entries(tokensDark).forEach(([key, val]) => {
     const keys = Object.keys(val);
@@ -51,9 +51,9 @@ function reverseTokens(tokensDark) {
     const length = keys.length;
     const reversedObj = {};
     for (let i = 0; i < length; i++) {
-      reversedObj[keys[i]] = values[length - i - 1];
+      (reversedObj as any)[keys[i]] = values[length - i - 1];
     }
-    reversedTokens[key] = reversedObj;
+    (reversedTokens as any)[key] = reversedObj;
   });
   return reversedTokens;
 }
@@ -63,7 +63,7 @@ export const tokensLight: typeof tokensDark = reverseTokens(
 ) as typeof tokensDark;
 
 // mui theme settings
-export const themeSettings = (mode) => {
+export const themeSettings = (mode: any) => {
   return {
     palette: {
       mode: mode,
