@@ -1,33 +1,28 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { configureStore } from "@reduxjs/toolkit";
+import { createWrapper } from "next-redux-wrapper";
 import type { AppProps } from "next/app";
-import { useMemo } from "react";
-import { Provider, useSelector } from "react-redux";
+import { useEffect } from "react";
 import globalReducer from "state";
-import { themeSettings } from "theme";
 import "../styles/globals.css";
 
-const store = configureStore({
-  reducer: {
-    global: globalReducer,
-  },
-});
+const makeStore = () =>
+  configureStore({
+    reducer: {
+      global: globalReducer,
+    },
+  });
 
-interface RootState {
-  global: {
-    mode: string;
-  };
+const wrapper = createWrapper(makeStore, { debug: true });
+
+function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+  return <Component {...pageProps} />;
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  const mode = useSelector((state: RootState) => state.global.mode);
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
-  return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </Provider>
-  );
-}
+export default wrapper.withRedux(MyApp);
