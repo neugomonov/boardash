@@ -4,13 +4,19 @@ import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import globalReducer from "state";
 import "../styles/globals.css";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { api } from "state/api";
 
-const makeStore = () =>
-  configureStore({
-    reducer: {
-      global: globalReducer,
-    },
-  });
+const store = configureStore({
+  reducer: {
+    global: globalReducer,
+    [api.reducerPath]: api.reducer,
+  },
+  middleware: (getDefault) => getDefault().concat(api.middleware),
+});
+const makeStore = () => store;
+
+setupListeners(store.dispatch);
 
 const wrapper = createWrapper(makeStore, { debug: true });
 
