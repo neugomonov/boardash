@@ -30,7 +30,7 @@ import {
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import FlexBetween from "./FlexBetween";
-import profileImage from "assets/thispersondoesnotexist.jpeg";
+import profileImage from "assets/thispersondoesnotexist.jpg";
 import { useRouter } from "next/router";
 
 const navItems = [
