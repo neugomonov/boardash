@@ -10,6 +10,7 @@ import { themeSettings } from "theme";
   This function consumes a component and wraps it under layout. 
   Goal is to have all the components wrapped with the Layout HOC and Theme Provider
  */
+
 interface RootState {
   global: {
     mode: string;

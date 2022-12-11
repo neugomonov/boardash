@@ -1,12 +1,24 @@
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Navbar from "components/Navbar";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import Sidebar from "components/Sidebar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   return (
-    <Box width="100%" height="100%">
+    <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
+      <Sidebar
+        isNonMobile={isNonMobile}
+        drawerWidth="250px"
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
       <Box>
-        <Navbar />
+        <Navbar
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
         {children}
       </Box>
     </Box>
