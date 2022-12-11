@@ -11,9 +11,10 @@ import { themeSettings } from "theme";
   Goal is to have all the components wrapped with the Layout HOC and Theme Provider
  */
 
-interface RootState {
+export interface RootState {
   global: {
     mode: string;
+    userId: string;
   };
 }
 
