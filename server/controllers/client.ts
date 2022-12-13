@@ -11,6 +11,7 @@ export const getProducts = async (req: Request, res: Response) => {
           productId: product._id,
         });
         return {
+          /* @ts-expect-error - _doc does not exist, whatever */
           ...product._doc,
           stat,
         };
