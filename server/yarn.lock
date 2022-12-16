@@ -1255,6 +1255,11 @@ cors@^2.8.5:
     object-assign "^4"
     vary "^1"
 
+country-iso-2-to-3@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/country-iso-2-to-3/-/country-iso-2-to-3-1.1.0.tgz#219379033763abf86e96845317ae9be145aae850"
+  integrity sha512-+xaB6XPuuLuSQEjejWXjff7s5AMyisPk3jBmIqM7aymup79mEcinNkUiIpe4VedSPWCT+/bMW/EDJvRaiDaWKw==
+
 create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
