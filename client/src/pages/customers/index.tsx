@@ -27,7 +27,7 @@ const Customers = () => {
     {
       field: "phoneNumber",
       headerName: "Phone Number",
-      flex: 0.5,
+      flex: 0.6,
       renderCell: (params) => {
         return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
       },
