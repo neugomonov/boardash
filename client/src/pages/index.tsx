@@ -13,7 +13,10 @@ const IndexPage: NextPage = () => {
       <header className={styles.header}>
         <img src="/logo.svg" className={styles.logo} alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.tsx</code> and save to reload. Just kidding. This
+          is a dashboard app, which I did not finish yet, so there is this
+          awkward template page set as the main one. Dumb, I know. Anyway, click
+          on any link on the navbar. Stop reading this stuff lol
         </p>
         <span>
           <span>Learn </span>
