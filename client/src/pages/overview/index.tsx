@@ -2,7 +2,7 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import Header from "components/Header";
 import OverviewChart from "components/OverviewChart";
 import Wrapper from "hoc/Wrapper";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Overview = () => {
   const [view, setView] = useState("units");

@@ -1,11 +1,11 @@
 import { Box, useTheme } from "@mui/material";
+import { ResponsiveLine } from "@nivo/line";
 import Header from "components/Header";
-import React, { useMemo, useState } from "react";
-import { useGetSalesQuery } from "state/api";
+import Wrapper from "hoc/Wrapper";
+import { useMemo, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Wrapper from "hoc/Wrapper";
-import { ResponsiveLine } from "@nivo/line";
+import { useGetSalesQuery } from "state/api";
 
 const Daily = () => {
   const [startDate, setStartDate] = useState(new Date("2021-02-01"));

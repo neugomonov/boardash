@@ -1,16 +1,11 @@
-import React, { useState } from "react";
 import {
-  LightModeOutlined,
+  ArrowDropDownOutlined,
   DarkModeOutlined,
+  LightModeOutlined,
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
-  ArrowDropDownOutlined,
 } from "@mui/icons-material";
-import FlexBetween from "components/FlexBetween";
-import { useDispatch } from "react-redux";
-import { setMode } from "state";
-import profileImage from "assets/thispersondoesnotexist.jpg";
 import {
   AppBar,
   Box,
@@ -23,6 +18,11 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import profileImage from "assets/thispersondoesnotexist.jpg";
+import FlexBetween from "components/FlexBetween";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setMode } from "state";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();

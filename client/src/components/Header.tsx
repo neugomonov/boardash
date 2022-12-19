@@ -1,5 +1,4 @@
-import { Typography, Box, useTheme } from "@mui/material";
-import React from "react";
+import { Box, Typography, useTheme } from "@mui/material";
 
 const Header = ({ title, subtitle }) => {
   const theme = useTheme();

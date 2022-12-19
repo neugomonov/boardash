@@ -1,9 +1,9 @@
 import { Box, useTheme } from "@mui/material";
-import Header from "components/Header";
-import React, { useMemo, useState } from "react";
-import { useGetSalesQuery } from "state/api";
-import Wrapper from "hoc/Wrapper";
 import { ResponsiveLine } from "@nivo/line";
+import Header from "components/Header";
+import Wrapper from "hoc/Wrapper";
+import { useMemo } from "react";
+import { useGetSalesQuery } from "state/api";
 
 const Monthly = () => {
   const { data } = useGetSalesQuery();
