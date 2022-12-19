@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { setupListeners } from "@reduxjs/toolkit/query";
 import { createWrapper } from "next-redux-wrapper";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import globalReducer from "state";
-import "../styles/globals.css";
-import { setupListeners } from "@reduxjs/toolkit/query";
 import { api } from "state/api";
+import "../styles/globals.css";
 
 const store = configureStore({
   reducer: {

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
 import {
   Box,
+  Button,
   Card,
   CardActions,
   CardContent,
   Collapse,
-  Button,
-  Typography,
   Rating,
-  useTheme,
+  Typography,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Header from "components/Header";
-import { useGetProductsQuery } from "state/api";
 import Wrapper from "hoc/Wrapper";
+import { useState } from "react";
+import { useGetProductsQuery } from "state/api";
 
 const Product = ({
   _id,
