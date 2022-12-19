@@ -11,7 +11,9 @@
     "strict": true,
     "noImplicitAny": true,
     "useUnknownInCatchVariables": false,
-    "inlineSourceMap": true
+    "inlineSourceMap": true,
+    "noEmit": false,
+    "noEmitOnError": false
   },
   "ts-node": {
     "esm": true
