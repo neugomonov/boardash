@@ -31,6 +31,7 @@ import profileImage from "assets/thispersondoesnotexist.jpg";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FlexBetween from "./FlexBetween";
+import MotionBox from "./motion/MotionBox";
 
 const navItems = [
   {
@@ -105,7 +106,6 @@ const Sidebar = ({
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
-
   return (
     <Box component="nav">
       {isSidebarOpen ? (
@@ -140,7 +140,7 @@ const Sidebar = ({
                 ) : null}
               </FlexBetween>
             </Box>
-            <List>
+            <List sx={{ overflow: "hidden" }}>
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
@@ -151,40 +151,42 @@ const Sidebar = ({
                 }
                 const lcText = text.toLowerCase();
                 return (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton
-                      onClick={() => {
-                        router.push(`/${lcText}`);
-                        setActive(lcText);
-                      }}
-                      sx={{
-                        backgroundColor:
-                          active === lcText
-                            ? theme.palette.secondary[300]
-                            : "transparent",
-                        color:
-                          active === lcText
-                            ? theme.palette.primary[600]
-                            : theme.palette.secondary[100],
-                      }}
-                    >
-                      <ListItemIcon
+                  <MotionBox key={text}>
+                    <ListItem disablePadding>
+                      <ListItemButton
+                        onClick={() => {
+                          router.push(`/${lcText}`);
+                          setActive(lcText);
+                        }}
                         sx={{
-                          ml: "2rem",
+                          backgroundColor:
+                            active === lcText
+                              ? theme.palette.secondary[300]
+                              : "transparent",
                           color:
                             active === lcText
                               ? theme.palette.primary[600]
-                              : theme.palette.secondary[200],
+                              : theme.palette.secondary[100],
                         }}
                       >
-                        {icon}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                      {active === lcText ? (
-                        <ChevronRightOutlined sx={{ ml: "auto" }} />
-                      ) : null}
-                    </ListItemButton>
-                  </ListItem>
+                        <ListItemIcon
+                          sx={{
+                            ml: "2rem",
+                            color:
+                              active === lcText
+                                ? theme.palette.primary[600]
+                                : theme.palette.secondary[200],
+                          }}
+                        >
+                          {icon}
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                        {active === lcText ? (
+                          <ChevronRightOutlined sx={{ ml: "auto" }} />
+                        ) : null}
+                      </ListItemButton>
+                    </ListItem>
+                  </MotionBox>
                 );
               })}
             </List>
