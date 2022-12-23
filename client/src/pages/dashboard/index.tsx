@@ -16,6 +16,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import BreakdownChart from "components/BreakdownChart";
 import FlexBetween from "components/FlexBetween";
 import Header from "components/Header";
+import MotionBox from "components/motion/MotionBox";
 import OverviewChart from "components/OverviewChart";
 import StatBox from "components/StatBox";
 import Wrapper from "hoc/Wrapper";
@@ -62,18 +63,20 @@ const Dashboard = () => {
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
         <Box>
-          <Button
-            sx={{
-              backgroundColor: theme.palette.secondary.light,
-              color: theme.palette.background.alt,
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlined sx={{ mr: "10px" }} />
-            Download reports
-          </Button>
+          <MotionBox>
+            <Button
+              sx={{
+                backgroundColor: theme.palette.secondary.light,
+                color: theme.palette.background.alt,
+                fontSize: "14px",
+                fontWeight: "bold",
+                padding: "10px 20px",
+              }}
+            >
+              <DownloadOutlined sx={{ mr: "10px" }} />
+              Download reports
+            </Button>
+          </MotionBox>
         </Box>
       </FlexBetween>
       <Box
