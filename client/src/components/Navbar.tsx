@@ -50,9 +50,11 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             p="0.1rem 1.5rem"
           >
             <InputBase placeholder="Search..." />
-            <IconButton>
-              <Search />
-            </IconButton>
+            <MotionBox>
+              <IconButton>
+                <Search />
+              </IconButton>
+            </MotionBox>
           </FlexBetween>
         </FlexBetween>
         {/* RIGHT SIDE */}
