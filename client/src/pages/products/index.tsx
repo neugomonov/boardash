@@ -11,6 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Header from "components/Header";
+import MotionBox from "components/motion/MotionBox";
 import Wrapper from "hoc/Wrapper";
 import { useState } from "react";
 import { useGetProductsQuery } from "state/api";
@@ -53,13 +54,15 @@ const Product = ({
         <Typography variant="body2">{description}</Typography>
       </CardContent>
       <CardActions>
-        <Button
-          variant="primary"
-          size="small"
-          onClick={() => setIsExpanded(!isExpanded)}
-        >
-          See More
-        </Button>
+        <MotionBox>
+          <Button
+            variant="primary"
+            size="small"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            See More
+          </Button>
+        </MotionBox>
       </CardActions>
       <Collapse
         in={isExpanded}
@@ -99,7 +102,7 @@ const Products = () => {
           columnGap="1.33%"
           sx={{ "& > div": { gridColumn: isNonMobile ? undefined : "span 4" } }}
         >
-          {data.map(
+          {data?.map(
             ({
               _id,
               name,
