@@ -241,12 +241,16 @@ const Sidebar = ({
                     {user.occupation}
                   </Typography>
                 </Box>
-                <SettingsOutlined
-                  sx={{
-                    color: theme.palette.secondary[300],
-                    fontSize: "25px",
-                  }}
-                />
+                <MotionBox>
+                  <IconButton>
+                    <SettingsOutlined
+                      sx={{
+                        color: theme.palette.secondary[300],
+                        fontSize: "25px",
+                      }}
+                    />
+                  </IconButton>
+                </MotionBox>
               </FlexBetween>
             </Box>
           </motion.div>
