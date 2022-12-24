@@ -17,17 +17,18 @@ import {
 import {
   Box,
   Divider,
-  Drawer,
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  SwipeableDrawer,
   Typography,
   useTheme,
 } from "@mui/material";
 import profileImage from "assets/thispersondoesnotexist.jpg";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import FlexBetween from "./FlexBetween";
@@ -109,8 +110,9 @@ const Sidebar = ({
   return (
     <Box component="nav">
       {isSidebarOpen ? (
-        <Drawer
+        <SwipeableDrawer
           open={isSidebarOpen}
+          onOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
           variant="persistent"
           anchor="left"
@@ -125,108 +127,143 @@ const Sidebar = ({
             },
           }}
         >
-          <Box width="100%">
-            <Box m="1.5rem 2rem 2rem 3rem">
-              <FlexBetween color={theme.palette.secondary.main}>
-                <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold">
-                    BOARDASH
-                  </Typography>
-                </Box>
-                {!isNonMobile ? (
-                  <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-                    <ChevronLeft />
-                  </IconButton>
-                ) : null}
-              </FlexBetween>
-            </Box>
-            <List sx={{ overflow: "hidden" }}>
-              {navItems.map(({ text, icon }) => {
-                if (!icon) {
-                  return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
-                      {text}
+          <motion.div
+            key="sidebarContent"
+            initial="appearing"
+            animate="visible"
+            variants={{
+              appearing: { x: -250 },
+              visible: {
+                x: 0,
+                transition: {
+                  ease: easeInOutExpo,
+                  duration: 1,
+                },
+              },
+            }}
+          >
+            <Box width="100%">
+              <Box m="1.5rem 2rem 2rem 3rem">
+                <FlexBetween color={theme.palette.secondary.main}>
+                  <Box display="flex" alignItems="center" gap="0.5rem">
+                    <Typography variant="h4" fontWeight="bold">
+                      BOARDASH
                     </Typography>
-                  );
-                }
-                const lcText = text.toLowerCase();
-                return (
-                  <MotionBox key={text}>
-                    <ListItem disablePadding>
-                      <ListItemButton
-                        onClick={() => {
-                          router.push(`/${lcText}`);
-                          setActive(lcText);
-                        }}
-                        sx={{
-                          backgroundColor:
-                            active === lcText
-                              ? theme.palette.secondary[300]
-                              : "transparent",
-                          color:
-                            active === lcText
-                              ? theme.palette.primary[600]
-                              : theme.palette.secondary[100],
-                        }}
-                      >
-                        <ListItemIcon
+                  </Box>
+                  {!isNonMobile ? (
+                    <IconButton
+                      onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                    >
+                      <ChevronLeft />
+                    </IconButton>
+                  ) : null}
+                </FlexBetween>
+              </Box>
+              <List sx={{ overflow: "hidden" }}>
+                {navItems.map(({ text, icon }) => {
+                  if (!icon) {
+                    return (
+                      <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                        {text}
+                      </Typography>
+                    );
+                  }
+                  const lcText = text.toLowerCase();
+                  return (
+                    <MotionBox key={text}>
+                      <ListItem disablePadding>
+                        <ListItemButton
+                          onClick={() => {
+                            router.push(`/${lcText}`);
+                            setActive(lcText);
+                          }}
                           sx={{
-                            ml: "2rem",
+                            backgroundColor:
+                              active === lcText
+                                ? theme.palette.secondary[300]
+                                : "transparent",
                             color:
                               active === lcText
                                 ? theme.palette.primary[600]
-                                : theme.palette.secondary[200],
+                                : theme.palette.secondary[100],
                           }}
                         >
-                          {icon}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                        {active === lcText ? (
-                          <ChevronRightOutlined sx={{ ml: "auto" }} />
-                        ) : null}
-                      </ListItemButton>
-                    </ListItem>
-                  </MotionBox>
-                );
-              })}
-            </List>
-          </Box>
-          <Box position="absolute" bottom="2rem">
-            <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
-              <Box
-                component="img"
-                alt="profile"
-                src={profileImage.src}
-                height="40px"
-                width="40px"
-                borderRadius="50%"
-                sx={{ objectFit: "cover" }}
-              />
-              <Box textAlign="left">
-                <Typography
-                  fontWeight="bold"
-                  fontSize="0.9rem"
-                  sx={{ color: theme.palette.secondary[100] }}
-                >
-                  {user.name}
-                </Typography>
-                <Typography
-                  fontSize="0.8rem"
-                  sx={{ color: theme.palette.secondary[200] }}
-                >
-                  {user.occupation}
-                </Typography>
-              </Box>
-              <SettingsOutlined
-                sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
-              />
-            </FlexBetween>
-          </Box>
-        </Drawer>
+                          <ListItemIcon
+                            sx={{
+                              ml: "2rem",
+                              color:
+                                active === lcText
+                                  ? theme.palette.primary[600]
+                                  : theme.palette.secondary[200],
+                            }}
+                          >
+                            {icon}
+                          </ListItemIcon>
+                          <ListItemText primary={text} />
+                          {active === lcText ? (
+                            <ChevronRightOutlined sx={{ ml: "auto" }} />
+                          ) : null}
+                        </ListItemButton>
+                      </ListItem>
+                    </MotionBox>
+                  );
+                })}
+              </List>
+            </Box>
+            <Box position="absolute" bottom="2rem">
+              <Divider />
+              <FlexBetween
+                textTransform="none"
+                gap="1rem"
+                m="1.5rem 2rem 0 3rem"
+              >
+                <Box
+                  component="img"
+                  alt="profile"
+                  src={profileImage.src}
+                  height="40px"
+                  width="40px"
+                  borderRadius="50%"
+                  sx={{ objectFit: "cover" }}
+                />
+                <Box textAlign="left">
+                  <Typography
+                    fontWeight="bold"
+                    fontSize="0.9rem"
+                    sx={{ color: theme.palette.secondary[100] }}
+                  >
+                    {user.name}
+                  </Typography>
+                  <Typography
+                    fontSize="0.8rem"
+                    sx={{ color: theme.palette.secondary[200] }}
+                  >
+                    {user.occupation}
+                  </Typography>
+                </Box>
+                <SettingsOutlined
+                  sx={{
+                    color: theme.palette.secondary[300],
+                    fontSize: "25px",
+                  }}
+                />
+              </FlexBetween>
+            </Box>
+          </motion.div>
+        </SwipeableDrawer>
       ) : null}
     </Box>
   );
 };
+
+function easeInOutExpo(x: number): number {
+  return x === 0
+    ? 0
+    : x === 1
+    ? 1
+    : x < 0.5
+    ? Math.pow(2, 20 * x - 10) / 2
+    : (2 - Math.pow(2, -20 * x + 10)) / 2;
+}
 
 export default Sidebar;
