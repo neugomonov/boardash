@@ -7,20 +7,39 @@ body,
   height: 100%;
   width: 100%;
   font-family: "Inter", sans-serif;
+  scrollbar-face-color: #7a7f9d;
+  scrollbar-base-color: #7a7f9d;
+  scrollbar-3dlight-color: #7a7f9d;
+  scrollbar-highlight-color: #7a7f9d;
+  scrollbar-track-color: #000;
+  scrollbar-arrow-color: #000;
+  scrollbar-shadow-color: #7a7f9d;
+  scrollbar-dark-shadow-color: #7a7f9d;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
-
+::-webkit-scrollbar-button {
+  background-color: #21295c;
+}
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #7a7f9d;
+  background-color: #7a7f9d;
 }
-
+::-webkit-scrollbar-track-piece {
+  background-color: #000;
+}
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #21295c;
+  background-color: #21295c;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-corner {
+  background-color: #7a7f9d;
+}
+::-webkit-resizer {
+  background-color: #21295c;
 }
 
 /* Handle on hover */
