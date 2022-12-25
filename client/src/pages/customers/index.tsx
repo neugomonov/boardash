@@ -1,6 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
+import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
 import { motion } from "framer-motion";
 import Wrapper from "hoc/Wrapper";
 import { useGetCustomersQuery } from "state/api";
@@ -49,23 +50,7 @@ const Customers = () => {
     },
   ];
   return (
-    <Box
-      m="1.5rem 2.5rem"
-      component={motion.div}
-      key="Customers"
-      initial="appearing"
-      animate="visible"
-      variants={{
-        appearing: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            duration: 1,
-          },
-        },
-      }}
-      exit={{ opacity: 0 }}
-    >
+    <MainContentMotionBoxWrapper key="customers">
       <Header title="CUSTOMERS" subtitle="List of Customers" />
       <Box
         mt="40px"
@@ -98,7 +83,7 @@ const Customers = () => {
           columns={columns}
         />
       </Box>
-    </Box>
+    </MainContentMotionBoxWrapper>
   );
 };
 

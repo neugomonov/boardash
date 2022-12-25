@@ -11,6 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Header from "components/Header";
+import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
 import MotionBox from "components/motion/MotionBox";
 import { motion } from "framer-motion";
 import Wrapper from "hoc/Wrapper";
@@ -91,23 +92,7 @@ const Products = () => {
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   console.log("useGetProductsQuery data", data);
   return (
-    <Box
-      m="1.5rem 2.5rem"
-      component={motion.div}
-      key="Products"
-      initial="appearing"
-      animate="visible"
-      variants={{
-        appearing: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            duration: 1,
-          },
-        },
-      }}
-      exit={{ opacity: 0 }}
-    >
+    <MainContentMotionBoxWrapper key="products">
       <Header title="PRODUCTS" subtitle="See your list of products" />
       {data || !isLoading ? (
         <Box
@@ -147,7 +132,7 @@ const Products = () => {
       ) : (
         <>Loading...</>
       )}
-    </Box>
+    </MainContentMotionBoxWrapper>
   );
 };
 
