@@ -19,16 +19,14 @@ import Header from "components/Header";
 import MotionBox from "components/motion/MotionBox";
 import OverviewChart from "components/OverviewChart";
 import StatBox from "components/StatBox";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Wrapper from "hoc/Wrapper";
-import { useState } from "react";
 import { useGetDashboardQuery } from "state/api";
 
 const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   const { data, isLoading } = useGetDashboardQuery();
-  const [view, setView] = useState("units");
   const columns = [
     {
       field: "_id",
