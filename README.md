@@ -16,4 +16,6 @@
 - Made *full* with [Node.js](https://nodejs.org/en/) <sub>```(as in stack)```</sub>
 - Made *fuller* with [Express.js](https://expressjs.com/) <sub>```(as in stacker)```</sub>
 
+⚠ The backend takes a while to load, these are the limitations of render.com free hosting. That's why it's free. :)
+
 <b> DASHBOARD <a href="https://boardash.onrender.com/dashboard">🐗</a></b>
