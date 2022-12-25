@@ -1,5 +1,6 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
+import { AnimatePresence } from "framer-motion";
 import Layout from "layout";
 import { NextComponentType } from "next";
 import { useMemo } from "react";
@@ -26,7 +27,9 @@ const Wrapper = (Component: NextComponentType) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Layout>
-          <Component {...props} />
+          <AnimatePresence exitBeforeEnter>
+            <Component {...props} />
+          </AnimatePresence>
         </Layout>
       </ThemeProvider>
     );

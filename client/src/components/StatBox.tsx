@@ -1,10 +1,16 @@
 import { Box, Typography, useTheme } from "@mui/material";
+import { motion } from "framer-motion";
 import FlexBetween from "./FlexBetween";
 
 const StatBox = ({ title, value, increase, icon, description }) => {
   const theme = useTheme();
   return (
     <Box
+      component={motion.div}
+      whileHover={{
+        scale: 1.05,
+        transition: { type: "spring", bounce: 0.8, duration: 1 },
+      }}
       gridColumn="span 2"
       gridRow="span 1"
       display="flex"

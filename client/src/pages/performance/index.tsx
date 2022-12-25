@@ -2,6 +2,7 @@ import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 import Header from "components/Header";
+import { motion } from "framer-motion";
 import Wrapper from "hoc/Wrapper";
 import { useSelector } from "react-redux";
 import { useGetUserPerformanceQuery } from "state/api";
@@ -41,7 +42,23 @@ const Performance = () => {
     },
   ];
   return (
-    <Box m="1.5rem 2.5rem">
+    <Box
+      m="1.5rem 2.5rem"
+      component={motion.div}
+      key="Performance"
+      initial="appearing"
+      animate="visible"
+      variants={{
+        appearing: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            duration: 1,
+          },
+        },
+      }}
+      exit={{ opacity: 0 }}
+    >
       <Header
         title="PERFORMANCE"
         subtitle="Track your Affiliate Sales Performance here"

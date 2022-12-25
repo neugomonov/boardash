@@ -1,6 +1,7 @@
 import { Box, useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import Header from "components/Header";
+import { motion } from "framer-motion";
 import Wrapper from "hoc/Wrapper";
 import { useMemo } from "react";
 import { useGetSalesQuery } from "state/api";
@@ -35,7 +36,23 @@ const Monthly = () => {
     return [formattedData];
   }, [data]);
   return (
-    <Box m="1.5rem 2.5rem">
+    <Box
+      m="1.5rem 2.5rem"
+      component={motion.div}
+      key="Monthly"
+      initial="appearing"
+      animate="visible"
+      variants={{
+        appearing: { opacity: 0 },
+        visible: {
+          opacity: 1,
+          transition: {
+            duration: 1,
+          },
+        },
+      }}
+      exit={{ opacity: 0 }}
+    >
       <Header title="MOTHLY SALES" subtitle="Chart of monthly sales" />
       <Box height="75vh">
         {data ? (
