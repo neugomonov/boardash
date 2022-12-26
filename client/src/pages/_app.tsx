@@ -6,7 +6,7 @@ import Layout from "layout";
 import { createWrapper } from "next-redux-wrapper";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import NextNProgress from "nextjs-progressbar";
 import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import globalReducer from "state";
@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-  return <Component {...pageProps} />;
+      <NextNProgress options={{ showSpinner: false }} color="#FFF6E0" />
       <Layout>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.asPath} />
