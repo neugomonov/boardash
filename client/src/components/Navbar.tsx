@@ -20,10 +20,12 @@ import {
 } from "@mui/material";
 import profileImage from "assets/thispersondoesnotexist.jpg";
 import FlexBetween from "components/FlexBetween";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
 import MotionBox from "./motion/MotionBox";
+import { easeInOutExpo } from "./Sidebar";
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
@@ -33,7 +35,22 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
   return (
-    <AppBar sx={{ position: "static", background: "none", boxShadow: "none" }}>
+    <AppBar
+      sx={{ position: "static", background: "none", boxShadow: "none" }}
+      component={motion.div}
+      initial="appearing"
+      animate="visible"
+      variants={{
+        appearing: { y: -64 },
+        visible: {
+          y: 0,
+          transition: {
+            ease: easeInOutExpo,
+            duration: 1,
+          },
+        },
+      }}
+    >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween>
