@@ -2,8 +2,6 @@ import { Box, useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useMemo } from "react";
 import { useGetSalesQuery } from "state/api";
 
@@ -37,7 +35,7 @@ const Monthly = () => {
     return [formattedData];
   }, [data]);
   return (
-    <MainContentMotionBoxWrapper key="monthly">
+    <MainContentMotionBoxWrapper >
       <Header title="MOTHLY SALES" subtitle="Chart of monthly sales" />
       <Box height="75vh">
         {data ? (
@@ -152,4 +150,4 @@ const Monthly = () => {
   );
 };
 
-export default Wrapper(Monthly);
+export default Monthly;

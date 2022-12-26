@@ -2,8 +2,6 @@ import { Box, useTheme } from "@mui/material";
 import { ResponsiveLine } from "@nivo/line";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useMemo, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -45,7 +43,7 @@ const Daily = () => {
     return [formattedData];
   }, [data, startDate, endDate]);
   return (
-    <MainContentMotionBoxWrapper key="daily">
+    <MainContentMotionBoxWrapper>
       <Header title="DAILY SALES" subtitle="Chart of daily sales" />
       <Box height="75vh">
         <Box display="flex" justifyContent="flex-end">
@@ -181,4 +179,4 @@ const Daily = () => {
   );
 };
 
-export default Wrapper(Daily);
+export default Daily;

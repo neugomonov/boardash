@@ -2,14 +2,12 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
 import OverviewChart from "components/OverviewChart";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useState } from "react";
 
 const Overview = () => {
   const [view, setView] = useState("units");
   return (
-    <MainContentMotionBoxWrapper key="overview">
+    <MainContentMotionBoxWrapper >
       <Header
         title="OVERVIEW"
         subtitle="Overview of general revenue and profit"
@@ -32,4 +30,4 @@ const Overview = () => {
   );
 };
 
-export default Wrapper(Overview);
+export default Overview;

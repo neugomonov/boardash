@@ -3,8 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useState } from "react";
 import { useGetTransactionsQuery } from "state/api";
 
@@ -53,7 +51,7 @@ const Transactions = () => {
     },
   ];
   return (
-    <MainContentMotionBoxWrapper key="transactions">
+    <MainContentMotionBoxWrapper>
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
       <Box
         height="80vh"
@@ -103,4 +101,4 @@ const Transactions = () => {
   );
 };
 
-export default Wrapper(Transactions);
+export default Transactions;

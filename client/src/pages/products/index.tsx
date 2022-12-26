@@ -13,8 +13,6 @@ import {
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
 import MotionBox from "components/motion/MotionBox";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useState } from "react";
 import { useGetProductsQuery } from "state/api";
 
@@ -92,7 +90,7 @@ const Products = () => {
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   console.log("useGetProductsQuery data", data);
   return (
-    <MainContentMotionBoxWrapper key="products">
+    <MainContentMotionBoxWrapper>
       <Header title="PRODUCTS" subtitle="See your list of products" />
       {data || !isLoading ? (
         <Box
@@ -136,4 +134,4 @@ const Products = () => {
   );
 };
 
-export default Wrapper(Products);
+export default Products;

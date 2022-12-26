@@ -3,8 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useSelector } from "react-redux";
 import { useGetUserPerformanceQuery } from "state/api";
 
@@ -43,7 +41,7 @@ const Performance = () => {
     },
   ];
   return (
-    <MainContentMotionBoxWrapper key="performance">
+    <MainContentMotionBoxWrapper>
       <Header
         title="PERFORMANCE"
         subtitle="Track your Affiliate Sales Performance here"
@@ -86,4 +84,4 @@ const Performance = () => {
   );
 };
 
-export default Wrapper(Performance);
+export default Performance;

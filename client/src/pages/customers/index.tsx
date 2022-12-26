@@ -2,8 +2,6 @@ import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useGetCustomersQuery } from "state/api";
 
 const Customers = () => {
@@ -50,7 +48,7 @@ const Customers = () => {
     },
   ];
   return (
-    <MainContentMotionBoxWrapper key="customers">
+    <MainContentMotionBoxWrapper>
       <Header title="CUSTOMERS" subtitle="List of Customers" />
       <Box
         mt="40px"
@@ -87,4 +85,4 @@ const Customers = () => {
   );
 };
 
-export default Wrapper(Customers);
+export default Customers;

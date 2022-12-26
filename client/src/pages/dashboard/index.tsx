@@ -20,8 +20,6 @@ import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxW
 import MotionBox from "components/motion/MotionBox";
 import OverviewChart from "components/OverviewChart";
 import StatBox from "components/StatBox";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useGetDashboardQuery } from "state/api";
 
 const Dashboard = () => {
@@ -59,7 +57,7 @@ const Dashboard = () => {
     },
   ];
   return (
-    <MainContentMotionBoxWrapper key="dashboard">
+    <MainContentMotionBoxWrapper>
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
         <Box>
@@ -200,4 +198,4 @@ const Dashboard = () => {
   );
 };
 
-export default Wrapper(Dashboard);
+export default Dashboard;

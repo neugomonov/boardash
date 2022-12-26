@@ -3,8 +3,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useGetAdminsQuery } from "state/api";
 
 const Admin = () => {
@@ -51,7 +49,7 @@ const Admin = () => {
     },
   ];
   return (
-    <MainContentMotionBoxWrapper key="admin">
+    <MainContentMotionBoxWrapper>
       <Header title="ADMINS" subtitle="Managing admins and list of admins" />
       <Box
         mt="40px"
@@ -91,4 +89,4 @@ const Admin = () => {
   );
 };
 
-export default Wrapper(Admin);
+export default Admin;

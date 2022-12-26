@@ -2,8 +2,6 @@ import { Box, useTheme } from "@mui/material";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
 import { useGetGeographyQuery } from "state/api";
 import { geoData } from "state/geoData";
 
@@ -11,7 +9,7 @@ const Geography = () => {
   const theme = useTheme();
   const { data } = useGetGeographyQuery();
   return (
-    <MainContentMotionBoxWrapper key="geography">
+    <MainContentMotionBoxWrapper>
       <Header title="GEOGRAPHY" subtitle="Find where your users are located" />
       <Box
         mt="40px"
@@ -100,4 +98,4 @@ const Geography = () => {
   );
 };
 
-export default Wrapper(Geography);
+export default Geography;
