@@ -2,8 +2,7 @@ import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 import Header from "components/Header";
-import { motion } from "framer-motion";
-import Wrapper from "hoc/Wrapper";
+import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
 import { useState } from "react";
 import { useGetTransactionsQuery } from "state/api";
 
@@ -52,23 +51,7 @@ const Transactions = () => {
     },
   ];
   return (
-    <Box
-      m="1.5rem 2.5rem"
-      component={motion.div}
-      key="Transactions"
-      initial="appearing"
-      animate="visible"
-      variants={{
-        appearing: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            duration: 1,
-          },
-        },
-      }}
-      exit={{ opacity: 0 }}
-    >
+    <MainContentMotionBoxWrapper>
       <Header title="TRANSACTIONS" subtitle="Entire list of transactions" />
       <Box
         height="80vh"
@@ -114,8 +97,8 @@ const Transactions = () => {
           }}
         />
       </Box>
-    </Box>
+    </MainContentMotionBoxWrapper>
   );
 };
 
-export default Wrapper(Transactions);
+export default Transactions;
