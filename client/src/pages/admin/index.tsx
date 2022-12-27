@@ -73,6 +73,7 @@ const Admin = () => {
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
             color: `${theme.palette.secondary[200]} !important`,
           },
+          transition: "background .2s ease, color .2s ease",
         }}
       >
         <DataGrid

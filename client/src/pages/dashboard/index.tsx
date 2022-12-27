@@ -69,6 +69,7 @@ const Dashboard = () => {
                 fontSize: "14px",
                 fontWeight: "bold",
                 padding: "10px 20px",
+                transition: "background .2s ease, color .2s ease",
               }}
             >
               <DownloadOutlined sx={{ mr: "10px" }} />
@@ -116,6 +117,9 @@ const Dashboard = () => {
           backgroundColor={theme.palette.background.alt}
           p="1rem"
           borderRadius="0.55rem"
+          sx={{
+            transition: "background .2s ease, color .2s ease",
+          }}
         >
           <OverviewChart view="sales" isDashboard={true} />
         </Box>
@@ -164,6 +168,7 @@ const Dashboard = () => {
             "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
               color: `${theme.palette.secondary[200]} !important`,
             },
+            transition: "background .2s ease, color .2s ease",
           }}
         >
           <DataGrid
@@ -179,6 +184,9 @@ const Dashboard = () => {
           backgroundColor={theme.palette.background.alt}
           p="1.5rem"
           borderRadius="0.55rem"
+          sx={{
+            transition: "background .2s ease, color .2s ease",
+          }}
         >
           <Typography variant="h6" sx={{ color: theme.palette.secondary[100] }}>
             Sales by category

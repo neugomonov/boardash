@@ -150,6 +150,7 @@ const Sidebar = ({
                       borderWidth: 0,
                       width: drawerWidth,
                       overflow: "hidden",
+                      transition: "background .2s ease, color .2s ease",
                     },
                   }}
                 >
@@ -193,6 +194,8 @@ const Sidebar = ({
                                     active === lcText
                                       ? theme.palette.primary[600]
                                       : theme.palette.secondary[100],
+                                  transition:
+                                    "background .2s ease, color .2s ease",
                                 }}
                               >
                                 <ListItemIcon
@@ -286,6 +289,7 @@ const Sidebar = ({
               width: drawerWidth,
               overflow: "hidden",
               overflowY: "visible",
+              transition: "background .2s ease, color .2s ease",
             },
           }}
         >
@@ -329,6 +333,7 @@ const Sidebar = ({
                             active === lcText
                               ? theme.palette.primary[600]
                               : theme.palette.secondary[100],
+                          transition: "background .2s ease, color .2s ease",
                         }}
                       >
                         <ListItemIcon

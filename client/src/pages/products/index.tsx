@@ -34,6 +34,7 @@ const Product = ({
         backgroundImage: "none",
         backgroundColor: theme.palette.background.alt,
         borderRadius: "0.55rem",
+        transition: "background .2s ease, color .2s ease",
       }}
     >
       <CardContent>
