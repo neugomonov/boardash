@@ -1,7 +1,7 @@
 # boardash
 🐗💨
 
-![image](https://user-images.githubusercontent.com/31484313/207612595-8d7b48bb-4601-4da8-9eb6-2ef01c3b390c.png)
+![image](https://user-images.githubusercontent.com/31484313/209619213-30289338-45bd-4720-b3ec-e00a88ec1625.png)
 
 ## MERN Stack
 
