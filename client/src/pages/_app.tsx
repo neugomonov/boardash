@@ -14,7 +14,7 @@ import { api } from "state/api";
 import { themeSettings } from "theme";
 import "../styles/globals.css";
 
-interface RootState {
+export interface RootState {
   global: {
     mode: string;
     userId: string;

@@ -1,7 +1,7 @@
 import { Box, useMediaQuery } from "@mui/material";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
-import { RootState } from "hoc/Wrapper";
+import { RootState } from "pages/_app";
 import { ReactNode, useState } from "react";
 import { useSelector } from "react-redux";
 import { useGetUserQuery } from "state/api";
