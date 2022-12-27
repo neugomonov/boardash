@@ -12,7 +12,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const userId = useSelector((state: RootState) => state.global.userId);
   const { data } = useGetUserQuery(userId);
   return (
-    <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
+    <Box display={"flex"} width="100%" height="100%">
       <Sidebar
         user={data || {}}
         isNonMobile={isNonMobile}
