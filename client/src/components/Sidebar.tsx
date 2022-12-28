@@ -269,6 +269,7 @@ const Sidebar = ({
           ) : null}
         </AnimatePresence>
       ) : (
+        // TODO: fix the edge swipe gesture opening the drawer, it doesn't work properly, it's laggy, changes layout width while in the dom, doesn't open the drawer fully at the areas where the cards are present, works properly in the gaps of distorted layout though...
         <SwipeableDrawer
           open={isSidebarOpen}
           onOpen={() => setIsSidebarOpen(true)}
