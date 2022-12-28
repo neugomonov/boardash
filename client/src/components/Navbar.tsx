@@ -21,18 +21,26 @@ import {
 import profileImage from "assets/thispersondoesnotexist.jpg";
 import FlexBetween from "components/FlexBetween";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
 import MotionBox from "./motion/MotionBox";
 import { easeInOutExpo } from "./Sidebar";
 
-const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({
+  user,
+  isSidebarOpen,
+  setIsSidebarOpen,
+}: {
+  user: any;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClick = (event: Event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
   return (
     <AppBar

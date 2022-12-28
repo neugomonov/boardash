@@ -1,8 +1,21 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, SvgIconTypeMap, Typography, useTheme } from "@mui/material";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { motion } from "framer-motion";
 import FlexBetween from "./FlexBetween";
 
-const StatBox = ({ title, value, increase, icon, description }) => {
+const StatBox = ({
+  title,
+  value,
+  increase,
+  icon,
+  description,
+}: {
+  title: string;
+  value: string;
+  increase: string;
+  icon: any;
+  description: string;
+}) => {
   const theme = useTheme();
   return (
     <Box

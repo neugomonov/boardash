@@ -31,7 +31,7 @@ import {
 import profileImage from "assets/thispersondoesnotexist.jpg";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import FlexBetween from "./FlexBetween";
 import MotionBox from "./motion/MotionBox";
 
@@ -100,6 +100,12 @@ const Sidebar = ({
   isSidebarOpen,
   setIsSidebarOpen,
   isNonMobile,
+}: {
+  user: any;
+  drawerWidth: string;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+  isNonMobile: boolean;
 }) => {
   const router = useRouter();
   const { pathname } = useRouter();
@@ -269,6 +275,7 @@ const Sidebar = ({
           ) : null}
         </AnimatePresence>
       ) : (
+        // TODO: fix the edge swipe gesture opening the drawer, it doesn't work properly, it's laggy, changes layout width while in the dom, doesn't open the drawer fully at the areas where the cards are present, works properly in the gaps of distorted layout though...
         <SwipeableDrawer
           open={isSidebarOpen}
           onOpen={() => setIsSidebarOpen(true)}

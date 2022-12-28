@@ -8,7 +8,7 @@ const Breakdown = () => {
     <MainContentMotionBoxWrapper>
       <Header title="BREAKDOWN" subtitle="Breakdown of Sales By Category" />
       <Box mt="40px" height="75vh">
-        <BreakdownChart />
+        <BreakdownChart isDashboard={false} />
       </Box>
     </MainContentMotionBoxWrapper>
   );

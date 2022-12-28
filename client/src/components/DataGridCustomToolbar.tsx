@@ -6,10 +6,19 @@ import {
   GridToolbarDensitySelector,
   GridToolbarExport,
 } from "@mui/x-data-grid";
+import { Dispatch, SetStateAction } from "react";
 import FlexBetween from "./FlexBetween";
 import MotionBox from "./motion/MotionBox";
 
-const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
+const DataGridCustomToolbar = ({
+  searchInput,
+  setSearchInput,
+  setSearch,
+}: {
+  searchInput: string;
+  setSearchInput: Dispatch<SetStateAction<string>>;
+  setSearch: Dispatch<SetStateAction<string>>;
+}) => {
   return (
     <GridToolbarContainer>
       <FlexBetween width="100%">

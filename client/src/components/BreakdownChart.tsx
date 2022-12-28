@@ -2,10 +2,10 @@ import { Box, Typography, useTheme } from "@mui/material";
 import { ResponsivePie } from "@nivo/pie";
 import { useGetSalesQuery } from "state/api";
 
-const BreakdownChart = ({ isDashboard = false }) => {
+const BreakdownChart = ({ isDashboard = false }: { isDashboard: boolean }) => {
   const { data, isLoading } = useGetSalesQuery();
   const theme = useTheme();
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading) return <>Loading...</>;
   const colors = [
     theme.palette.secondary[500],
     theme.palette.secondary[300],

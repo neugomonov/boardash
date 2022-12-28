@@ -18,12 +18,12 @@ const Daily = () => {
     const totalSalesLine = {
       id: "totalSales",
       color: theme.palette.secondary.main,
-      data: [],
+      data: [] as string[],
     };
     const totalUnitsLine = {
       id: "totalUnits",
       color: theme.palette.secondary[600],
-      data: [],
+      data: [] as string[],
     };
     Object.values(dailyData).forEach(({ date, totalSales, totalUnits }) => {
       const dateFormatted = new Date(date);

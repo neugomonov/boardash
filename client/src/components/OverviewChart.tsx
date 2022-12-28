@@ -3,7 +3,13 @@ import { ResponsiveLine } from "@nivo/line";
 import { useMemo } from "react";
 import { useGetSalesQuery } from "state/api";
 
-const OverviewChart = ({ isDashboard = false, view }) => {
+const OverviewChart = ({
+  isDashboard = false,
+  view,
+}: {
+  isDashboard: boolean;
+  view: string;
+}) => {
   const theme = useTheme();
   const { data, isLoading } = useGetSalesQuery();
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
@@ -12,12 +18,12 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     const totalSalesLine = {
       id: "totalSales",
       color: theme.palette.secondary.main,
-      data: [],
+      data: [] as string[],
     };
     const totalUnitsLine = {
       id: "totalUnits",
       color: theme.palette.secondary[600],
-      data: [],
+      data: [] as string[],
     };
     Object.values(monthlyData).reduce(
       (acc, { month, totalSales, totalUnits }) => {
@@ -37,7 +43,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     );
     return [[totalSalesLine], [totalUnitsLine]];
   }, [data]);
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading) return <>Loading...</>;
   return (
     <ResponsiveLine
       data={view === "sales" ? totalSalesLine : totalUnitsLine}

@@ -62,8 +62,6 @@ export const tokensLight: typeof tokensDark = reverseTokens(
   tokensDark
 ) as typeof tokensDark;
 
-// TODO: Implement smooth theme transition
-
 // mui theme settings
 export const themeSettings = (mode: any) => {
   return {

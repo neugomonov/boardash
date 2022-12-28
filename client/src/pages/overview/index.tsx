@@ -7,7 +7,7 @@ import { useState } from "react";
 const Overview = () => {
   const [view, setView] = useState("units");
   return (
-    <MainContentMotionBoxWrapper >
+    <MainContentMotionBoxWrapper>
       <Header
         title="OVERVIEW"
         subtitle="Overview of general revenue and profit"
@@ -24,7 +24,7 @@ const Overview = () => {
             <MenuItem value="units">Units</MenuItem>
           </Select>
         </FormControl>
-        <OverviewChart view={view} />
+        <OverviewChart isDashboard={false} view={view} />
       </Box>
     </MainContentMotionBoxWrapper>
   );
