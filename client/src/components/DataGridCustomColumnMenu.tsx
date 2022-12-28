@@ -1,10 +1,16 @@
 import {
+  GridColDef,
   GridColumnMenuContainer,
   GridFilterMenuItem,
   HideGridColMenuItem,
 } from "@mui/x-data-grid";
+import { SyntheticEvent } from "react";
 
-const CustomColumnMenu = (props) => {
+const CustomColumnMenu = (props: {
+  hideMenu: (event: SyntheticEvent<Element, Event>) => void;
+  currentColumn: GridColDef<any, any, any>;
+  open: boolean;
+}) => {
   const { hideMenu, currentColumn, open } = props;
   return (
     <GridColumnMenuContainer

@@ -14,12 +14,12 @@ const Monthly = () => {
     const totalSalesLine = {
       id: "totalSales",
       color: theme.palette.secondary.main,
-      data: [],
+      data: [] as string[],
     };
     const totalUnitsLine = {
       id: "totalUnits",
       color: theme.palette.secondary[600],
-      data: [],
+      data: [] as string[],
     };
     Object.values(monthlyData).forEach(({ month, totalSales, totalUnits }) => {
       totalSalesLine.data = [
@@ -35,7 +35,7 @@ const Monthly = () => {
     return [formattedData];
   }, [data]);
   return (
-    <MainContentMotionBoxWrapper >
+    <MainContentMotionBoxWrapper>
       <Header title="MOTHLY SALES" subtitle="Chart of monthly sales" />
       <Box height="75vh">
         {data ? (

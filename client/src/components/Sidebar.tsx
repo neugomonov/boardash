@@ -31,7 +31,7 @@ import {
 import profileImage from "assets/thispersondoesnotexist.jpg";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import FlexBetween from "./FlexBetween";
 import MotionBox from "./motion/MotionBox";
 
@@ -100,6 +100,12 @@ const Sidebar = ({
   isSidebarOpen,
   setIsSidebarOpen,
   isNonMobile,
+}: {
+  user: any;
+  drawerWidth: string;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+  isNonMobile: boolean;
 }) => {
   const router = useRouter();
   const { pathname } = useRouter();

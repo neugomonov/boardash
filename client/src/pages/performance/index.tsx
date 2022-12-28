@@ -1,5 +1,5 @@
 import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridCellParams } from "@mui/x-data-grid";
 import CustomColumnMenu from "components/DataGridCustomColumnMenu";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
@@ -31,13 +31,14 @@ const Performance = () => {
       headerName: "№ of products",
       flex: 0.5,
       sortable: false,
-      renderCell: (params) => params.value.length,
+      renderCell: (params: GridCellParams) => params.value.length,
     },
     {
       field: "cost",
       headerName: "Cost",
       flex: 1,
-      renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+      renderCell: (params: GridCellParams) =>
+        `$${Number(params.value).toFixed(2)}`,
     },
   ];
   return (

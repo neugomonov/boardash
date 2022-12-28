@@ -1,5 +1,5 @@
 import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridCellParams } from "@mui/x-data-grid";
 import Header from "components/Header";
 import MainContentMotionBoxWrapper from "components/motion/MainContentMotionBoxWrapper";
 import { useGetCustomersQuery } from "state/api";
@@ -27,7 +27,7 @@ const Customers = () => {
       field: "phoneNumber",
       headerName: "Phone Number",
       flex: 0.6,
-      renderCell: (params) => {
+      renderCell: (params: GridCellParams) => {
         return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
       },
     },
