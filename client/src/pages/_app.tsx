@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import Layout from "layout";
 import { createWrapper } from "next-redux-wrapper";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import NextNProgress from "nextjs-progressbar";
 import { useEffect, useMemo } from "react";
@@ -49,6 +50,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <NextNProgress options={{ showSpinner: false }} color="#FFF6E0" />
+      <Head>
+        <title>Boardash</title>
+      </Head>
       <Layout>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.asPath} />
