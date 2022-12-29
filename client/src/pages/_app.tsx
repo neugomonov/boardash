@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextNProgress options={{ showSpinner: false }} color="#FFF6E0" />
       <Head>
         <title>Boardash</title>
+        <meta property="og:title" content="Boardash" key="boardash" />
       </Head>
       <Layout>
         <AnimatePresence exitBeforeEnter>
