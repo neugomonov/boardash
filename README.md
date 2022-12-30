@@ -1,5 +1,10 @@
-# boardash
-🐗💨
+<div align="center">
+	<img src="client/public/favicon.ico" alt="Logo" width="20"/>
+  <h1><a href="https://boardash.onrender.com/dashboard">Boardash</a></h1>
+  Boardash is a dashboard, dashboard is boardash.  
+  <br>
+  <br> 
+</div>
 
 ![image](https://user-images.githubusercontent.com/31484313/209619213-30289338-45bd-4720-b3ec-e00a88ec1625.png)
 
@@ -18,4 +23,4 @@
 
 ⚠ The backend takes a while to load, these are the limitations of render.com free hosting. That's why it's free. :)
 
-<b> DASHBOARD <a href="https://boardash.onrender.com/dashboard">🐗</a></b>
+<b><a href="https://boardash.onrender.com/dashboard">🐗💨</a></b>
