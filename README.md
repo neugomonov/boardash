@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="client/public/favicon.ico" alt="Logo" width="20"/>
+	<img src="client/public/favicon.ico" alt="Logo" width="64"/>
   <h1><a href="https://boardash.onrender.com/dashboard">Boardash</a></h1>
   Boardash is a dashboard, dashboard is boardash.  
   <br>
